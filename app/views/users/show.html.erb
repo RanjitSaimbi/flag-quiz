@@ -1,3 +1,10 @@
 <h1> Welcome <%= @user.name%>! </h1>
 
-<h2><%= link_to "New Game", new_game_path %></h2>
+<%= button_to "New Game",
+    {
+      action: "new",
+      controller: "games",
+      id: @user.id
+    },
+    method: "get"
+%>
