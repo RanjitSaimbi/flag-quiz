@@ -2,9 +2,9 @@
 
 <%= button_to "New Game",
     {
-      action: "new",
+      action: "create",
       controller: "games",
       id: @user.id
     },
-    method: "get"
+    method: "post"
 %>
