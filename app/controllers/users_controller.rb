@@ -23,9 +23,10 @@ def destroy
   redirect_to welcome_users_path
 end
 
-def end
-byebug
-end
+  def end
+   @game = Game.find(session[:game_id])
+
+  end
 
 
 end
