@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   def create
     @user = User.find(params[:id])
     @game = @user.games.create(score: 0)
-    random_question_ids = Question.all.map {|q|q.id}.sample 10
+    random_question_ids = Question.all.map {|q|q.id}.sample 3
     random_question_ids.each {|id|
       @game.results.create(question_id: id)
     }
@@ -13,9 +13,19 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @game_questions = @game.results
-    @game_result = @game_questions.sample
+    if @game_result = @game_questions.where(correct: nil).first
+
+    # @game_result = @game_questions.sample
     @question = @game_result.question
 
+    @ans = Question.where(question_type: @question.question_type).collect {|x| x.answer}
+    @ans.shuffle!
+    @ans = @ans[0..3]
+    @ans << @question.answer
+    @ans.shuffle!
+  else
+    redirect_to end_path
+  end
   end
 
   def answer
@@ -23,15 +33,24 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @question = Question.find(params[:question_id])
     @result = Result.find(params[:result_id])
+    if @question.answer == params[:chosen]
     @result.correct = true
     @game.score += 10
     @game.save
     @result.save
     redirect_to @game
+    else
+      redirect_to @game
+    end
+
 
 
     #this should check if answer is correct
   end
+
+  def end
+  end
+
 
 end
 

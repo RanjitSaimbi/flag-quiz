@@ -15,23 +15,12 @@
 <%= image_tag(image_url(@question.location), size: "640x400")%>
 
 
+<% @ans.each do |x| %>
 <%= form_tag answer_path do %>
  <%= hidden_field_tag :id, @game.id %>
  <%= hidden_field_tag :question_id, @question.id %>
  <%= hidden_field_tag :result_id, @game_result.id %>
- <%= submit_tag "#{@question.answer}" %>
+  <%= hidden_field_tag :chosen, x %>
+ <%= submit_tag "#{x}" %>
 <% end %>
-
-<%= form_tag answer_path do %>
- <%= hidden_field_tag :id, @game.id %>
- <%= hidden_field_tag :question_id, @question.id %>
- <%= hidden_field_tag :result_id, @game_result.id %>
- <%= submit_tag "#{@question.answer}" %>
-<% end %>
-
-<%= form_tag answer_path do %>
- <%= hidden_field_tag :id, @game.id %>
- <%= hidden_field_tag :question_id, @question.id %>
- <%= hidden_field_tag :result_id, @game_result.id %>
- <%= submit_tag "#{@question.answer}" %>
 <% end %>
