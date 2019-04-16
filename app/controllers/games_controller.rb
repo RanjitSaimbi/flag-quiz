@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   def create
     @user = User.find(params[:id])
     @game = @user.games.create(score: 0)
-    random_question_ids = Question.all.map {|q|q.id}.sample 3
+    random_question_ids = Question.all.map {|q|q.id}.sample 5
     random_question_ids.each {|id|
       @game.results.create(question_id: id)
     }
@@ -40,12 +40,10 @@ class GamesController < ApplicationController
     @result.save
     redirect_to @game
     else
+      @result.correct = false
+      @result.save
       redirect_to @game
     end
-
-
-
-    #this should check if answer is correct
   end
 
   def end
