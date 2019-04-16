@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :games
   resources :questions
   get '/', to: 'users#welcome', as: 'welcome'
-
+  post '/answer', to: 'games#answer', as: 'answer' 
 end

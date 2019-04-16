@@ -16,12 +16,12 @@ Question.create(question_type: "flag", location: 'flags/ye.png', answer: "Yemen"
 Question.create(question_type: "flag", location: 'flags/ws.png', answer: "Samoa")
 Question.create(question_type: "flag", location: 'flags/vu.png', answer: "Vanuatu")
 
-Question.create(question_type: "cat", location: 'cats/100.png', answer: "100 - Continue")
-Question.create(question_type: "cat", location: 'cats/101.png', answer: "101 - Switching Protocols")
-Question.create(question_type: "cat", location: 'cats/200.png', answer: "200 - OK")
-Question.create(question_type: "cat", location: 'cats/201.png', answer: "201 - Created")
-Question.create(question_type: "cat", location: 'cats/202.png', answer: "202 - Accepted")
-Question.create(question_type: "cat", location: 'cats/204.png', answer: "204 - No Content")
+Question.create(question_type: "cat", location: 'cats/100.jpg', answer: "100 - Continue")
+Question.create(question_type: "cat", location: 'cats/101.jpg', answer: "101 - Switching Protocols")
+Question.create(question_type: "cat", location: 'cats/200.jpg', answer: "200 - OK")
+Question.create(question_type: "cat", location: 'cats/201.jpg', answer: "201 - Created")
+Question.create(question_type: "cat", location: 'cats/202.jpg', answer: "202 - Accepted")
+Question.create(question_type: "cat", location: 'cats/204.jpg', answer: "204 - No Content")
 
 
 # <%= image_tag(image_url('flags/ad.png'), size: "640x400")%>

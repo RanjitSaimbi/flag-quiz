@@ -10,4 +10,13 @@
 
 <h1>LOGO</h1>
 
-<%= image_tag(image_url(Question.all.first.location), size: "640x400")%>
+<%= @game.score %>
+
+<%= image_tag(image_url(@question.location), size: "640x400")%>
+
+
+
+
+
+
+<button type="submit" form="form1" value="Submit">Submit</button>
