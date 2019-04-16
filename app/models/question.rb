@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
-  has_many :scores
-  has_many :games, through: :scores
+  has_many :results
+  has_many :games, through: :results
 end
