@@ -1,0 +1,19 @@
+
+User starts here.
+
+1. get user details
+2. basic logo
+3. stretch goal - show top 5 high scores "NAME is current high score, can you beat him?"
+
+
+
+
+<h1>LOGO</h1>
+
+<h2>How well do you know your flags and cats???</h2>
+
+<%= form_for(@user) do |f| %>
+  <label>Enter your user name:</label><br>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
+<% end %>
