@@ -30,6 +30,7 @@ class GamesController < ApplicationController
 
   def answer
 
+
     @game = Game.find(params[:id])
     @question = Question.find(params[:question_id])
     @result = Result.find(params[:result_id])
@@ -44,6 +45,8 @@ class GamesController < ApplicationController
       @result.save
       redirect_to @game
     end
+ 
+
   end
 
   def end
