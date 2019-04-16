@@ -30,22 +30,24 @@ class GamesController < ApplicationController
 
   def answer
 
-    @game = Game.find(params[:id])
-    @question = Question.find(params[:question_id])
-    @result = Result.find(params[:result_id])
-    if @question.answer == params[:chosen]
-    @result.correct = true
-    @game.score += 10
-    @game.save
-    @result.save
-    redirect_to @game
-    else
-      redirect_to @game
-    end
+     @game = Game.find(params[:id])
+     @question = Question.find(params[:question_id])
+     @result = Result.find(params[:result_id])
+     if @question.answer == params[:chosen]
+     @result.correct = true
+     @game.score += 10
+     @game.save
+     @result.save
+     redirect_to @game
+     else
+       @result.correct = false
+       @result.save
+       redirect_to @game
+     end
 
 
 
-    #this should check if answer is correct
+
   end
 
   def end
