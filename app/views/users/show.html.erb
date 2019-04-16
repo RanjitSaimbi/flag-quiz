@@ -1,3 +1,13 @@
+1. user page
+2. show if first game or last scores and current rank
+3. button to delete history
+4. change user name
+5. button to start game
+
+
+
+
+
 <h1> Welcome <%= @user.name%>! </h1>
 
 <%= button_to "New Game",
@@ -9,4 +19,6 @@
     method: "post"
 %>
 
-<%= image_tag(image_url(Question.all.first.location), size: "640x400")%>
+<%= link_to "back to welcome page", welcome_path %>
+
+<%= link_to "test game page", render '/results/1' %>
