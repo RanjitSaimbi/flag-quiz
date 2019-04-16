@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   def create
     @user = User.find(params[:id])
     @game = @user.games.create(score: 0)
-    random_question_ids = Question.all.map {|q|q.id}.sample 3
+    random_question_ids = Question.all.map {|q|q.id}.sample 5
     random_question_ids.each {|id|
       @game.results.create(question_id: id)
     }
@@ -30,27 +30,27 @@ class GamesController < ApplicationController
 
   def answer
 
-     @game = Game.find(params[:id])
-     @question = Question.find(params[:question_id])
-     @result = Result.find(params[:result_id])
-     if @question.answer == params[:chosen]
-     @result.correct = true
-     @game.score += 10
-     @game.save
-     @result.save
-     redirect_to @game
-     else
-       @result.correct = false
-       @result.save
-       redirect_to @game
-     end
 
-
+    @game = Game.find(params[:id])
+    @question = Question.find(params[:question_id])
+    @result = Result.find(params[:result_id])
+    if @question.answer == params[:chosen]
+    @result.correct = true
+    @game.score += 10
+    @game.save
+    @result.save
+    redirect_to @game
+    else
+      @result.correct = false
+      @result.save
+      redirect_to @game
+    end
 
 
   end
 
   def end
+
   end
 
 

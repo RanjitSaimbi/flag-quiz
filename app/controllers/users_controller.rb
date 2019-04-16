@@ -23,4 +23,9 @@ def destroy
   redirect_to welcome_users_path
 end
 
+def end
+
+end
+
+
 end

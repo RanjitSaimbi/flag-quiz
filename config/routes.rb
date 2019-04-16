@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :questions
   get '/', to: 'users#welcome', as: 'welcome'
   post '/answer', to: 'games#answer', as: 'answer'
-  get '/end', to: 'games#end', as: 'end'
+  get '/end', to: 'users#end', as: 'end'
 end
