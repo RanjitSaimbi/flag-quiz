@@ -24,6 +24,7 @@ class GamesController < ApplicationController
     @ans << @question.answer
     @ans.shuffle!
   else
+    session[:game_id] = @game.id
     redirect_to end_path
   end
   end
@@ -46,10 +47,6 @@ class GamesController < ApplicationController
       redirect_to @game
     end
 
-
-  end
-
-  def end
 
   end
 

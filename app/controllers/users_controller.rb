@@ -24,7 +24,7 @@ def destroy
 end
 
 def end
-
+byebug
 end
 
 
