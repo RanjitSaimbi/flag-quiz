@@ -13,14 +13,20 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @game_questions = @game.results
-    @question = @game_questions.sample.question
+    @game_result = @game_questions.sample
+    @question = @game_result.question
+
   end
 
   def answer
-    byebug
+
     @game = Game.find(params[:id])
-    @question.correct = true
-    @game.score += 1
+    @question = Question.find(params[:question_id])
+    @result = Result.find(params[:result_id])
+    @result.correct = true
+    @game.score += 10
+    @game.save
+    @result.save
     redirect_to @game
 
 

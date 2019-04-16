@@ -10,13 +10,28 @@
 
 <h1>LOGO</h1>
 
-<%= @game.score %>
+<h1>Score: <%= "#{@game.score}" %></h1>
 
 <%= image_tag(image_url(@question.location), size: "640x400")%>
 
 
+<%= form_tag answer_path do %>
+ <%= hidden_field_tag :id, @game.id %>
+ <%= hidden_field_tag :question_id, @question.id %>
+ <%= hidden_field_tag :result_id, @game_result.id %>
+ <%= submit_tag "#{@question.answer}" %>
+<% end %>
 
+<%= form_tag answer_path do %>
+ <%= hidden_field_tag :id, @game.id %>
+ <%= hidden_field_tag :question_id, @question.id %>
+ <%= hidden_field_tag :result_id, @game_result.id %>
+ <%= submit_tag "#{@question.answer}" %>
+<% end %>
 
-
-
-<button type="submit" form="form1" value="Submit">Submit</button>
+<%= form_tag answer_path do %>
+ <%= hidden_field_tag :id, @game.id %>
+ <%= hidden_field_tag :question_id, @question.id %>
+ <%= hidden_field_tag :result_id, @game_result.id %>
+ <%= submit_tag "#{@question.answer}" %>
+<% end %>
