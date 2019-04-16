@@ -9,11 +9,19 @@ Question.destroy_all
 
 ranjit = User.create(name: "Ranjit")
 
-Question.create(question_type: "Flag", location: 'flags/zw.png', answer: "Zimbabwe")
-Question.create(question_type: "Flag", location: 'flags/zm.png', answer: "Zambia")
-Question.create(question_type: "Flag", location: 'flags/za.png', answer: "South Africa")
-Question.create(question_type: "Flag", location: 'flags/ye.png', answer: "Yemen")
-Question.create(question_type: "Flag", location: 'flags/ws.png', answer: "Samoa")
-Question.create(question_type: "Flag", location: 'flags/vu.png', answer: "Vanuatu")
+Question.create(question_type: "flag", location: 'flags/zw.png', answer: "Zimbabwe")
+Question.create(question_type: "flag", location: 'flags/zm.png', answer: "Zambia")
+Question.create(question_type: "flag", location: 'flags/za.png', answer: "South Africa")
+Question.create(question_type: "flag", location: 'flags/ye.png', answer: "Yemen")
+Question.create(question_type: "flag", location: 'flags/ws.png', answer: "Samoa")
+Question.create(question_type: "flag", location: 'flags/vu.png', answer: "Vanuatu")
+
+Question.create(question_type: "cat", location: 'cats/100.png', answer: "100 - Continue")
+Question.create(question_type: "cat", location: 'cats/101.png', answer: "101 - Switching Protocols")
+Question.create(question_type: "cat", location: 'cats/200.png', answer: "200 - OK")
+Question.create(question_type: "cat", location: 'cats/201.png', answer: "201 - Created")
+Question.create(question_type: "cat", location: 'cats/202.png', answer: "202 - Accepted")
+Question.create(question_type: "cat", location: 'cats/204.png', answer: "204 - No Content")
+
 
 # <%= image_tag(image_url('flags/ad.png'), size: "640x400")%>
