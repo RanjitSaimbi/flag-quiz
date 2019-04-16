@@ -45,11 +45,12 @@ class GamesController < ApplicationController
       @result.save
       redirect_to @game
     end
- 
+
 
   end
 
   def end
+
   end
 
 
