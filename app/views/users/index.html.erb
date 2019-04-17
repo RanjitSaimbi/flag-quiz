@@ -2,11 +2,11 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-   <a href="/users/<%=@user.id%>">Back to <%=@user.name%> Page</a> 
+   <a href="/users/<%=@user.id%>">Back to <%=@user.name%> Page</a>
  </div>
  <div class="container">
-  <a href="/users/">High Scores</a>
-</div>
+    <a href="/users/<%=@user.id%>/my_games">My Games</a>
+ </div>
 <div class="container">
    <a href="/users/about">About</a>
 </div>
@@ -14,9 +14,9 @@
 
 <h3> Stats </h3>
 <br>
-<h4> Top 10 Scores </h4>
+<h4> Top 3 Scores </h4>
 <ul>
-<% @games.order(score: :desc).first(10). each do |g| %>
+<% @games.order(score: :desc).first(3). each do |g| %>
 <li> <%= g.score  %> - <%= g.user.name  %></li>
 <% end %>
 </ul>

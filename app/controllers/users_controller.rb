@@ -11,6 +11,10 @@ class UsersController < ApplicationController
       @user = User.find_by(id: session[:user_id])
     end
 
+    def about
+      @user = User.find_by(id: session[:user_id])
+    end
+
     def show
       @user = User.find(params[:id])
     end
@@ -49,8 +53,14 @@ end
 
   def my_games
     @user = User.find(params[:id])
+    if @user.games.empty?
+      @game = @user.games.create(score: 0)
+      @top_game = @game
+      @my_games = @user.games
+    else
     @top_game = @user.games.max_by(&:score)
     @my_games = @user.games
+    end
   end
 
 end
