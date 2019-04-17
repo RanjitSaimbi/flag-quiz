@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/', to: 'users#welcome', as: 'welcome'
   post '/answer', to: 'games#answer', as: 'answer'
   get '/end', to: 'users#end', as: 'end'
+  get '/users/:id/my_games', to: 'users#my_games'
 end

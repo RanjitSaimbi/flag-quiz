@@ -1,16 +1,8 @@
 <h1>Congratulations <%= @game.user.name.capitalize %></h1>
+<br>
 <h2><%= "Your score is #{@game.score}" %></h2>
-
-<h1>Show Ranking</h1>
-
-<h2><%= "You are # #{Game.order(:score).all.reverse.index(@game)}" %></h2>
-
-
-
-<a href="/">Main Menu</a><br>
-
-
-1. End page
-2. show Rank
-3. play again?
-4. back to main menu
+<br>
+<h2><%= "You are # #{Game.order(:score).all.reverse.index(@game) + 1}" %></h2>
+<br>
+<a <%= link_to "Back to Your page", user_path(@game.user) %></a>
+<br>
