@@ -19,7 +19,13 @@ class UsersController < ApplicationController
       @user = User.new
     end
 
+
     def create
+
+      if User.find_by(name: params[:user][:name])
+      @user = User.find_by(name: params[:user][:name])
+      redirect_to @user
+      else
   @user = User.new(name: params[:user][:name])
   if @user.save
     session[:user_id] = @user.id
@@ -28,6 +34,8 @@ class UsersController < ApplicationController
     render :welcome
   end
 end
+end
+
 
 def destroy
   @user = User.find(params[:id])
