@@ -1,0 +1,22 @@
+<h3> Stats </h3>
+<br>
+<h4> Top 10 Scores </h4>
+<ul>
+<% @games.order(score: :desc).first(10). each do |g| %>
+<li> <%= g.score  %> - <%= g.user.name  %></li>
+<% end %>
+</ul>
+
+<h4> Top 5 Correct Questions </h4>
+<ul>
+<% @top_5_questions.each do |k,v| %>
+<li> <%= k%> - <%= v%> </li>
+<% end %>
+</ul>
+
+<h4> Top 5 Incorrect Questions </h4>
+<ul>
+<% @bottom_5_questions.each do |k,v| %>
+<li> <%= k%> - <%= v%> </li>
+<% end %>
+</ul>

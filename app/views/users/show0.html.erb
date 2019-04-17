@@ -1,0 +1,30 @@
+<div class="container">
+<h1>LOGO</h1>
+
+<h1>Score: <%= "#{@game.score}" %></h1>
+
+<%= image_tag(image_url(@question.location), size: "640x400")%>
+
+<% @ans.each do |x| %>
+<%= form_tag answer_path do %>
+ <%= hidden_field_tag :id, @game.id %>
+ <%= hidden_field_tag :question_id, @question.id %>
+ <%= hidden_field_tag :result_id, @game_result.id %>
+  <%= hidden_field_tag :chosen, x %>
+ <%= submit_tag "#{x}" %>
+<% end %>
+<% end %>
+
+</div>
+
+<!-- <a href="/">Main Menu</a><br> -->
+
+<!-- 1. main game page
+2. logo
+3. picture centered
+4. three random choices to choose from
+5. score on top right that updates
+6. sound effect or show correct/wrong answer whichever is easier
+7. cycle to next answer till finished
+8. stretch goal - timer to limit time to answer
+9. stretch goal - anthem music? -->
