@@ -1,3 +1,6 @@
+
+
+
 <div class="container">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,6 +22,14 @@
     <label> Enter your user name:</label><br>
     <%= f.text_field :name %><br>
     <%= f.submit %>
+  <% end %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
   <% end %>
 </div>
 </div>

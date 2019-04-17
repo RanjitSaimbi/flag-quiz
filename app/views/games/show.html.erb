@@ -1,21 +1,29 @@
 <div class="container">
-<h1>LOGO</h1>
+<h1 ALIGN=CENTER>LOGO</h1>
 
-<h1>Score: <%= "#{@game.score}" %></h1>
+<h1 ALIGN=CENTER>Score: <%= "#{@game.score}" %></h1><br>
 
-<%= image_tag(image_url(@question.location), size: "640x400")%>
+
+
+<%= image_tag(image_url(@question.location), size: "640x400", :class => "rounded mx-auto d-block")%><br><br>
+
+
+
+<h3 ALIGN=CENTER >Choose Answer:</h3>
+
+
 
 <% @ans.each do |x| %>
-<%= form_tag answer_path do %>
+<%= form_tag answer_path, :class => 'btn btn-outline-dark btn-lg btn-block' do  %>
  <%= hidden_field_tag :id, @game.id %>
  <%= hidden_field_tag :question_id, @question.id %>
  <%= hidden_field_tag :result_id, @game_result.id %>
   <%= hidden_field_tag :chosen, x %>
- <%= submit_tag "#{x}" %>
+ <%= submit_tag "#{x}"  %>
 <% end %>
 <% end %>
 
-</div>
+
 
 <!-- <a href="/">Main Menu</a><br> -->
 
