@@ -1,0 +1,28 @@
+<% if flash[:notice] %>
+   <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+ <% end %>
+ <br>
+
+<h4>Your Top Score: <%= @my_games.map{|g|g.score}.max %></h4>
+
+
+<h4>Your Rank:</h4> <h4>
+
+
+<h4>Average Score:</h4>
+
+<h4>Your Game History:</h4>
+<ul>
+<% @my_games.each do |g|%>
+<li> Score: <%= g.score %>
+</li>
+<ul>
+  <% g.results.each do |r|%>
+  <li> <%= r.question.answer %> : <% if r.correct %> CORRECT <% else %>WRONG <% end %></li>
+  <% end %>
+</ul>
+<%= button_to "Delete Game", {:controller => :games,
+    :action => 'destroy', :id => g.id }, :method => :delete %>
+<% end %>
+<br>
+</ul>
