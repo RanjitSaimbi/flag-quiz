@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
       @bmp = Result.joins(:question).where(:correct => false).group('questions.answer').count.first(5)
       @bottom_5_questions = @bmp.sort_by {|_key, value| value}.reverse.to_h
+      @user = User.find_by(id: session[:user_id])
     end
 
     def show
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
       else
   @user = User.new(name: params[:user][:name])
   if @user.save
+    session[:user_id] = @user.id
     redirect_to @user
   else
     render :welcome
@@ -47,7 +49,7 @@ end
 
   def my_games
     @user = User.find(params[:id])
-    @top_game =
+    @top_game = @user.games.max_by(&:score)
     @my_games = @user.games
   end
 
