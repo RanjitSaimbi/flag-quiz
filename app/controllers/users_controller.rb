@@ -39,6 +39,7 @@ end
 
   def my_games
     @user = User.find(params[:id])
+    @top_game = 
     @my_games = @user.games
   end
 

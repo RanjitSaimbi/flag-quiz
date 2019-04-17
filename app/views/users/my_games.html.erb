@@ -6,10 +6,10 @@
 <h4>Your Top Score: <%= @my_games.map{|g|g.score}.max %></h4>
 
 
-<h4>Your Rank:</h4> <h4>
+<h4>Your Rank:</h4> <%=Game.order(:score).all.reverse.index(@game) + 1 %>
 
 
-<h4>Average Score:</h4>
+<h4>Average Score: <%= @my_games.map{|g|g.score}.inject(0){|sum,x| sum + x }/ @my_games.count %></h4>
 
 <h4>Your Game History:</h4>
 <ul>
