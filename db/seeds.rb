@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Question.destroy_all
+User.destroy_all
+Game.destroy_all
+Result.destroy_all
 
-ranjit = User.create(name: "Ranjit")
 
 Question.create(question_type: "flag", location: 'flags/zw.png', answer: "Zimbabwe")
 Question.create(question_type: "flag", location: 'flags/zm.png', answer: "Zambia")

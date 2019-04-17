@@ -38,7 +38,8 @@ end
   end
 
   def my_games
-    byebug
+    @user = User.find(params[:id])
+    @my_games = @user.games
   end
 
 end
