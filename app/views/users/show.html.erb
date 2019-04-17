@@ -16,7 +16,7 @@
  </nav>
 <div class="text-center">
 <img src="https://cdn1.bigcommerce.com/server4100/deb25/products/572/images/5125/cat_flag_sm_wht__72628.1466549182.1280.1280.jpg" height="40%" width="40%">
-<h2 class="display-7">Welcome <%= @user.name%>! </h2>
+<h2 class="display-7">Welcome <%= @user.name.capitalize%>! </h2><br>
 
 <%= button_to "New Game",
     {
