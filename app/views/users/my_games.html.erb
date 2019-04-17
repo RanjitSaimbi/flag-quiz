@@ -30,7 +30,7 @@
 </li>
 <ul>
   <% g.results.each do |r|%>
-  <li> <%= r.question.answer %> : <% if r.correct %> CORRECT <% else %>WRONG <% end %></li>
+  <li> <%= r.question.answer %> : <% if r.correct %> <font color="green">CORRECT</font>  <% else %><font color="red">WRONG</font><% end %></li>
   <% end %>
 </ul>
 <%= button_to "Delete Game", {:controller => :games,

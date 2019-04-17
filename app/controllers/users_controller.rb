@@ -25,9 +25,9 @@ class UsersController < ApplicationController
 
 
     def create
-
       if User.find_by(name: params[:user][:name])
       @user = User.find_by(name: params[:user][:name])
+      session[:user_id] = @user.id
       redirect_to @user
       else
   @user = User.new(name: params[:user][:name])
