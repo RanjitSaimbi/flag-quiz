@@ -1,18 +1,18 @@
-<div id ="all">
+<span class="border border-primary">
 
 
 
-<h1 ALIGN=CENTER>LOGO</h1>
-
-<h1 ALIGN=CENTER>Score: <%= "#{@game.score}" %></h1><br>
 
 
-
-<%= image_tag(image_url(@question.location), size: "640x400", :class => "rounded mx-auto d-block")%><br><br>
+<h1 class = " text-success" ALIGN=center>Score: <%= "#{@game.score}" %>   </h1><br>
 
 
 
-<h3 ALIGN=CENTER >Choose Answer:</h3>
+<%= image_tag(image_url(@question.location), size: "512x320", :class => "rounded mx-auto d-block")%><br><br>
+
+
+
+<h3 ALIGN=CENTER >Choose Answer:</h3><br>
 
 
 
@@ -26,7 +26,7 @@
 <% end %>
 <% end %>
 
-</div>
+</span>
 
 
 
