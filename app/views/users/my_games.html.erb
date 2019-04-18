@@ -6,7 +6,7 @@
 
  <div class="container">
 
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
    <div class="container">
     <a href="/users/<%=@user.id%>">Back to <%=@user.name%> Page</a>
   </div>
@@ -40,3 +40,17 @@
     :action => 'destroy', :id => g.id }, :method => :delete %>
 <% end %>
 <br>
+
+<style>
+#foot {
+  position: relative;
+  left: 20;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+</style>
+
+<div id= "foot" class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+  <p> </p>
+</div>

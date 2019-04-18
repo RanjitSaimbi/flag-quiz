@@ -1,0 +1,29 @@
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+   <a href="/">Log Out</a>
+ </div>
+ <div class="container">
+  <a href="/users/">High Scores</a>
+</div>
+<div class="container">
+   <a href="/users/<%=@user.id%>/my_games">My Games</a>
+</div>
+<div class="container">
+   <a href="/users/about">About</a>
+</div>
+ </nav>
+<div class="text-center">
+<img src="https://cdn1.bigcommerce.com/server4100/deb25/products/572/images/5125/cat_flag_sm_wht__72628.1466549182.1280.1280.jpg" height="40%" width="40%">
+<h2 class="display-7">Welcome <%= @user.name.capitalize%>! </h2><br>
+
+<%= button_to "New Game",
+    {
+      action: "create",
+      controller: "games",
+      id: @user.id
+    },
+    method: "post"
+%>
+</div>

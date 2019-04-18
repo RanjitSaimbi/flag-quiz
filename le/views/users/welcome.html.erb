@@ -1,0 +1,44 @@
+
+
+
+<div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+   <a href="/">Main Menu</a>
+ </div>
+ <div class="container">
+  <a href="/users/">High Scores</a>
+</div>
+<div class="container">
+   <a href="/users/about">About</a>
+</div>
+ </nav>
+<div class="text-center">
+<img src="https://cdn1.bigcommerce.com/server4100/deb25/products/572/images/5125/cat_flag_sm_wht__72628.1466549182.1280.1280.jpg" height="40%" width="40%">
+<h2 class="display-7">A strategy game of mystery and intrigue (not really)</h2><br>
+<div class="form-group">
+  <%= form_for(@user) do |f| %>
+    <label> Enter your user name:</label><br>
+    <%= f.text_field :name %><br><br>
+    <%= f.submit %>
+  <% end %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+</div>
+
+
+<!-- User starts here.
+
+1. get user details
+2. link to about
+3. link to high scores
+2. basic logo
+3. stretch goal - show top 5 high scores "NAME is current high score, can you beat him?" -->
