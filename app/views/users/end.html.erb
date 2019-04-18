@@ -1,4 +1,14 @@
 <div class="container">
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;"><br>
+<a> <%= link_to "Back to Your page", user_path(@game.user) %></a>
+ </nav>
+
+
+
+
+
+<div class="container">
 <h1>Congratulations <%= @game.user.name.capitalize %>!</h1>
 <h3><%= "Your score is #{@game.score}" %></h3>
 <h3><%= "You are ranked # #{Game.order(:score).all.reverse.index(@game) + 1}" %></h3>
@@ -11,6 +21,20 @@
   <% end %>
 </ul>
 <br>
-<a <%= link_to "Back to Your page", user_path(@game.user) %></a>
+
 <br>
+</div>
+
+<style>
+#foot {
+  position: absolute;
+  left: 20;
+  bottom: 0;
+  width: 80%;
+  text-align: center;
+}
+</style>
+
+<div id= "foot" class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;"">
+  <p> </p>
 </div>

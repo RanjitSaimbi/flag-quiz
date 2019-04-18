@@ -1,0 +1,40 @@
+<% if flash[:notice] %>
+   <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+ <% end %>
+ <br>
+
+
+ <div class="container">
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <div class="container">
+    <a href="/users/<%=@user.id%>">Back to <%=@user.name%> Page</a>
+  </div>
+  <div class="container">
+   <a href="/users/">High Scores</a>
+ </div>
+ <div class="container">
+    <a href="/users/about">About</a>
+ </div>
+  </nav>
+<br>
+<h4><%=@user.name%> Stats:</h4>
+<br>
+<h5>Top Score: <%= @my_games.map{|g|g.score}.max %></h5>
+<h5>Rank: <%=Game.order(:score).all.reverse.index(@top_game) + 1 %> </h5>
+<h5>Average Score: <%= @my_games.map{|g|g.score}.inject(0){|sum,x| sum + x }/ @my_games.count %></h5>
+<h5>Game History:</h5>
+<ul>
+<% @my_games.each do |g|%>
+<li> Score: <%= g.score %>
+</li>
+<ul>
+  <% g.results.each do |r|%>
+  <li> <%= r.question.answer %> : <% if r.correct %> <font color="green">CORRECT</font>  <% else %><font color="red">WRONG</font><% end %></li>
+  <% end %>
+</ul>
+<%= button_to "Delete Game", {:controller => :games,
+    :action => 'destroy', :id => g.id }, :method => :delete %>
+<% end %>
+<br>
+</ul>
