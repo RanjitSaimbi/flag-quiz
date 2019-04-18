@@ -18,23 +18,25 @@
  </div>
   </nav>
 <br>
-<h4><%=@user.name%> Stats:</h4>
+<ul class="list-group">
+<li class="list-group-item active"><%=@user.name%> Stats:</li>
+<li class="list-group-item">Top Score: <%= @my_games.map{|g|g.score}.max %></li>
+<li class="list-group-item">Rank: <%=Game.order(:score).all.reverse.index(@top_game) + 1 %> </li>
+<li class="list-group-item">Average Score: <%= @my_games.map{|g|g.score}.inject(0){|sum,x| sum + x }/ @my_games.count %></li>
 <br>
-<h5>Top Score: <%= @my_games.map{|g|g.score}.max %></h5>
-<h5>Rank: <%=Game.order(:score).all.reverse.index(@top_game) + 1 %> </h5>
-<h5>Average Score: <%= @my_games.map{|g|g.score}.inject(0){|sum,x| sum + x }/ @my_games.count %></h5>
-<h5>Game History:</h5>
-<ul>
+</ul>
+
+<ul class="list-group">
+<li class="list-group-item active">Game History:</li>
 <% @my_games.each do |g|%>
-<li> Score: <%= g.score %>
+<li class="list-group-item list-group-item-dark"> Score: <%= g.score %>
 </li>
-<ul>
+
   <% g.results.each do |r|%>
-  <li> <%= r.question.answer %> : <% if r.correct %> <font color="green">CORRECT</font>  <% else %><font color="red">WRONG</font><% end %></li>
+  <li class="list-group-item"> <%= r.question.answer %> : <% if r.correct %> <font color="green">CORRECT</font>  <% else %><font color="red">WRONG</font><% end %></li>
   <% end %>
 </ul>
 <%= button_to "Delete Game", {:controller => :games,
     :action => 'destroy', :id => g.id }, :method => :delete %>
 <% end %>
 <br>
-</ul>
